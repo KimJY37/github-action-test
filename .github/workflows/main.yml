@@ -1,0 +1,12 @@
+name: test-1
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: push
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Npm Install, build and test
+        run: |
+          npm ci
+          npm run build
+          npm test
