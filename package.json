@@ -4,7 +4,8 @@
   "description": "github action을 경험해보기 위한 프로젝트",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh workflow run deploy --ref main"
   },
   "repository": {
     "type": "git",
