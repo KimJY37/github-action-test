@@ -2,11 +2,17 @@ name: test-1
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: push
 jobs:
-  check-bats-version:
-    runs-on: self-hosted
+  Install:
     steps:
-      - name: Npm Install, build and test
-        run: |
-          npm ci
-          npm run build
-          npm test
+      - name: npm install
+        run: npm install
+jobs:
+  Deploy:
+    steps:
+      - name: deploy
+        run: docker run
+      
+      
+      
+      
+          
