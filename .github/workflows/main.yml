@@ -3,12 +3,12 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 on: push
 jobs:
   Install:
-    run-on: self-hosted
+    runs-on: self-hosted
     steps:
       - name: npm install
         run: npm install
   Deploy:
-    run-on: self-hosted
+    runs-on: self-hosted
     steps:
       - name: deploy
         run: docker run
