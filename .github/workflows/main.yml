@@ -6,7 +6,6 @@ jobs:
     steps:
       - name: npm install
         run: npm install
-jobs:
   Deploy:
     steps:
       - name: deploy
