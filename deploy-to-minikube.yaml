@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: default 
-  name: test_1
+  name: test-1
   labels:
-    app: test_1
+    app: test-1
 spec:
   replicas: 1 
   minReadySeconds: 10
   selector:
     matchLabels:
-      app: test_1
+      app: test-1
   template: 
     metadata:
       labels: 
-        app: test_1
+        app: test-1
     spec:
       nodeSelector:
         zone: private
         role: worker
       containers:
-      - name: test_1
+      - name: test-1
         image: gmlwlswldbs/test:latest
         imagePullPolicy: Always
         resources:        
@@ -37,12 +37,12 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: default
-  name: test_1
+  name: test-1
   labels:
-    app: test_1
+    app: test-1
 spec:
   selector:
-    app: test_1
+    app: test-1
   type: ClusterIP
   ports:
   - port: 8080
