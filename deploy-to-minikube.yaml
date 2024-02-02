@@ -16,9 +16,6 @@ spec:
       labels: 
         app: test-1
     spec:
-      nodeSelector:
-        zone: private
-        role: worker
       containers:
       - name: test-1
         image: gmlwlswldbs/test:latest
