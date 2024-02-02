@@ -10,9 +10,6 @@ jobs:
       run: npm install
   Push_Image:
     runs-on: self-hosted
-    permissions:
-      packages: write
-      contents: read
     steps:
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
@@ -22,7 +19,7 @@ jobs:
       - name: Docker Image Build
         run: |
           docker build --platform linux/x64/v8 -t gmlwlswldbs/test -f Dockerfile .
-      - name: Docker Hub Push
+      - name: Docker Hub Pushs
         run: docker push gmlwlswldbs/test
   Deploy:
     needs: [Install, Push_Image]
