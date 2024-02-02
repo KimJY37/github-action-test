@@ -6,7 +6,7 @@ spec:
     selector:
         matchLabels:
             app: example
-    replicas: 2
+    replicas: 1
     template:
         metadata:
             labels:
@@ -14,8 +14,8 @@ spec:
         spec:
             containers:
                 - name: example-api
-                  imagePullPolicy: Never
-                  image: gmlwlswldbs/test:latest
+                  imagePullPolicy: Always
+                  image: gmlwlswldbs/example:latest
                   resources:
                       limits:
                           cpu: 50m
@@ -25,6 +25,8 @@ spec:
                           memory: 10Mi
                   ports:
                       - containerPort: 8080
+            imagePullSecrets:
+                - name: docker-secret
 ---
 apiVersion: v1
 kind: Service
