@@ -1,46 +1,28 @@
-apiVersion: apps/v1         
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  namespace: default 
-  name: test-1
+  name: example-pod
   labels:
-    app: test-1
+    app: example-app
 spec:
-  replicas: 1 
-  minReadySeconds: 10
-  selector:
-    matchLabels:
-      app: test-1
-  template: 
-    metadata:
-      labels: 
-        app: test-1
-    spec:
-      containers:
-      - name: test-1
-        image: gmlwlswldbs/test:latest
-        imagePullPolicy: Always
-        resources:        
-            requests:
-              memory: "1Gi"
-              cpu: "200m"
-            limits:
-              memory: "1Gi"
-              cpu: "500m"
-      imagePullSecrets:
-      - name: docker-secret
+  containers:
+  - name: example-ct
+    # image: nginx:stable
+    image: gmlwlswldbs/test:latest
+    ports:
+    - containerPort: 80
+  imagePullSecrets:
+  - name: docker-secret
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: default
-  name: test-1
-  labels:
-    app: test-1
+  name: example-svc
 spec:
   selector:
-    app: test-1
-  type: ClusterIP
+    app: example-app
   ports:
-  - port: 8080
-
+  - protocol: TCP
+    port: 80
+    targetPort: 80
