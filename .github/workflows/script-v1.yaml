@@ -1,6 +1,6 @@
 name: script-v1
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: push
+on: workflow_dispatch
 jobs:
   install:
     runs-on: self-hosted
